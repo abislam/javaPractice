@@ -1,5 +1,5 @@
 //this comment is testing branch updates
-
+//branch update: correct board placement based on user input
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -24,11 +24,11 @@ public class ArrayPracticeTwoD {
 		
 		while(true){
 			System.out.println("Input value for user1: ");
-			user1 = scan.nextInt();
+			user1 = scan.nextInt() - 1;
 			while(true){
 
 
-				for(int i = 5; i > 0; i--){
+				for(int i = 5; i >= 0; i--){
 					if(arr[i][user1] == "*"){
 						arr[i][user1] = "X";
 						break;
