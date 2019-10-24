@@ -1,6 +1,6 @@
 //this comment is testing branch updates
 //branch update: correct board placement based on user input
-//add second user input
+//branch update: add second user input
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -41,7 +41,7 @@ public class ArrayPracticeTwoD {
 			}
 			System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
 
-			
+
 			System.out.println("Input value for user2: ");
 			user2 = scan2.nextInt() - 1;
 
