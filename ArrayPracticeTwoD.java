@@ -2,6 +2,17 @@
 //branch update: correct board placement based on user input
 //branch update: add second user input
 //check for win condition
+/*
+win condition algorithm:
+loop from array[0,0]
+	check 4 right
+	check 4 left
+	check 4 down
+	check 4 down right
+	check 4 down left
+
+do this loop after every user input
+*/
 import java.util.Scanner;
 import java.util.Arrays;
 
