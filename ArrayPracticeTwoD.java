@@ -8,6 +8,28 @@ import java.util.Arrays;
 
 public class ArrayPracticeTwoD {
 
+	public static String checkWin(String gameArr[][]){
+		for(int i = 0; i < gameArr.length; i++){
+
+			for(int j = 0; j < gameArr[i].length; j++){
+
+				if(gameArr[i][j] == "X" && gameArr[i][j+1] == "X" && gameArr[i][j+2] == "X" && gameArr[i][j+3] == "X"){
+					return "User1 wins";
+				}else if(gameArr[i][j] == "X" && gameArr[i+1][j] == "X" && gameArr[i+2][j] == "X" && gameArr[i+3][j] == "X"){
+					return "User1 wins";
+				}else if(gameArr[i][j] == "O" && gameArr[i][j+1] == "O" && gameArr[i][j+2] == "O" && gameArr[i][j+3] == "O"){
+					return "User2 wins";
+				}else if(gameArr[i][j] == "O" && gameArr[i+1][j] == "O" && gameArr[i+2][j] == "O" && gameArr[i+3][j] == "O"){
+					return "User2 wins";
+				}else{
+					continue;
+				}
+
+			}
+		}
+		return "checked for win";
+	}
+
 	public static void main(String []args){
 		Scanner scan = new Scanner(System.in);
 		int user1, user2;
@@ -40,7 +62,7 @@ public class ArrayPracticeTwoD {
 				}
 			}
 			System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-
+			checkWin(arr);
 
 			System.out.println("Input value for user2: ");
 			user2 = scan.nextInt() - 1;
@@ -55,6 +77,7 @@ public class ArrayPracticeTwoD {
 			}			
 			
 			System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
+			checkWin(arr);
 		}
 
 	}
@@ -74,24 +97,5 @@ public class ArrayPracticeTwoD {
 	do this loop after every user input
 	*/
 
-	public void checkWin(String gameArr[][]){
-		for(int i = 0; i < gameArr.length; i++){
-
-			for(int j = 0; j < gameArr[i].length; j++){
-
-				if(gameArr[i][j+1] == "X" && gameArr[i][j+2] == "X" && gameArr[i][j+3] == "X" && gameArr[i][j+4] == "X"){
-					System.out.println("User1 wins");
-				}else if(gameArr[i+1][j] == "X" && gameArr[i+2][j] == "X" && gameArr[i+3][j] == "X" && gameArr[i+4][j] == "X"){
-					System.out.println("User1 wins");
-				}else if(gameArr[i][j+1] == "O" && gameArr[i][j+2] == "O" && gameArr[i][j+3] == "O" && gameArr[i][j+4] == "O"){
-					System.out.println("User2 wins");
-				}else if(gameArr[i+1][j] == "O" && gameArr[i+2][j] == "O" && gameArr[i+3][j] == "O" && gameArr[i+4][j] == "O"){
-					System.out.println("User2 wins");
-				}else{
-					continue;
-				}
-
-			}
-		}
-	}	
+	
 }
