@@ -2,17 +2,7 @@
 //branch update: correct board placement based on user input
 //branch update: add second user input
 //check for win condition
-/*
-win condition algorithm:
-loop from array[0,0]
-	check 4 right
-	check 4 left
-	check 4 down
-	check 4 down right
-	check 4 down left
 
-do this loop after every user input
-*/
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -68,4 +58,40 @@ public class ArrayPracticeTwoD {
 		}
 
 	}
+
+
+
+	//methods over here
+	/*
+	win condition algorithm:
+	loop from array[0,0]
+		check 4 right
+		check 4 left
+		check 4 down
+		check 4 down right
+		check 4 down left
+
+	do this loop after every user input
+	*/
+
+	public void checkWin(String gameArr[][]){
+		for(int i = 0; i < gameArr.length; i++){
+
+			for(int j = 0; j < gameArr[i].length; j++){
+
+				if(gameArr[i][j+1] == "X" && gameArr[i][j+2] == "X" && gameArr[i][j+3] == "X" && gameArr[i][j+4] == "X"){
+					System.out.println("User1 wins");
+				}else if(gameArr[i+1][j] == "X" && gameArr[i+2][j] == "X" && gameArr[i+3][j] == "X" && gameArr[i+4][j] == "X"){
+					System.out.println("User1 wins");
+				}else if(gameArr[i][j+1] == "O" && gameArr[i][j+2] == "O" && gameArr[i][j+3] == "O" && gameArr[i][j+4] == "O"){
+					System.out.println("User2 wins");
+				}else if(gameArr[i+1][j] == "O" && gameArr[i+2][j] == "O" && gameArr[i+3][j] == "O" && gameArr[i+4][j] == "O"){
+					System.out.println("User2 wins");
+				}else{
+					continue;
+				}
+
+			}
+		}
+	}	
 }
