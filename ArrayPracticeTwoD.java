@@ -8,29 +8,9 @@ import java.util.Arrays;
 
 public class ArrayPracticeTwoD {
 
-	public static String checkWin(String gameArr[][]){
-		for(int i = 0; i < gameArr.length; i++){
-
-			for(int j = 0; j < gameArr[i].length; j++){
-
-				if(gameArr[i][j] == "X" && gameArr[i][j+1] == "X" && gameArr[i][j+2] == "X" && gameArr[i][j+3] == "X"){
-					return "User1 wins";
-				}else if(gameArr[i][j] == "X" && gameArr[i+1][j] == "X" && gameArr[i+2][j] == "X" && gameArr[i+3][j] == "X"){
-					return "User1 wins";
-				}else if(gameArr[i][j] == "O" && gameArr[i][j+1] == "O" && gameArr[i][j+2] == "O" && gameArr[i][j+3] == "O"){
-					return "User2 wins";
-				}else if(gameArr[i][j] == "O" && gameArr[i+1][j] == "O" && gameArr[i+2][j] == "O" && gameArr[i+3][j] == "O"){
-					return "User2 wins";
-				}else{
-					continue;
-				}
-
-			}
-		}
-		return "checked for win";
-	}
 
 	public static void main(String []args){
+		boolean gameOn = true;
 		Scanner scan = new Scanner(System.in);
 		int user1, user2;
 
@@ -49,7 +29,7 @@ public class ArrayPracticeTwoD {
 		//--------------------------------------------
 
 		//loop for getting user input and printing new board
-		while(true){
+		while(gameOn){
 			System.out.println("Input value for user1: ");
 			user1 = scan.nextInt() - 1;
 			int count = 0;
@@ -57,20 +37,21 @@ public class ArrayPracticeTwoD {
 			for(int i = 5; i >= 0; i--){
 				if(arr[i][user1] == "*"){
 					arr[i][user1] = "X";
-
+					//Vertical check---------------------------------------------------------
 					for(int iTop = 0; iTop < arr.length; iTop++){
 						if(arr[iTop][user1] == "X"){
 							count++;
-							System.out.println(count);
+							//System.out.println(count);
 						}else{
 							count = 0;
 						}
 
 						if(count == 4){
-								System.out.println("user 1 wins");
-								break;
+							System.out.println("user 1 wins");
+							gameOn = false;
 						}
 					}
+					//Vertical check---------------------------------------------------------
 					break;
 				}else{
 					continue;
@@ -87,6 +68,21 @@ public class ArrayPracticeTwoD {
 			for(int i = 5; i >= 0; i--){
 				if(arr[i][user2] == "*"){
 					arr[i][user2] = "O";
+					//Vertical check---------------------------------------------------------
+					for(int iTop = 0; iTop < arr.length; iTop++){
+						if(arr[iTop][user2] == "O"){
+							count++;
+							//System.out.println(count);
+						}else{
+							count = 0;
+						}
+
+						if(count == 4){
+							System.out.println("user 2 wins");
+							gameOn = false;
+						}
+					}
+					//Vertical check---------------------------------------------------------
 					break;
 				}else{
 					continue;
