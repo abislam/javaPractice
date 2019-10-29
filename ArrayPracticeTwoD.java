@@ -33,10 +33,12 @@ public class ArrayPracticeTwoD {
 			System.out.println("Input value for user1: ");
 			user1 = scan.nextInt() - 1;
 			int count = 0;
-
+			int countSide = 0;
 			for(int i = 5; i >= 0; i--){
 				if(arr[i][user1] == "*"){
 					arr[i][user1] = "X";
+
+
 					//Vertical check---------------------------------------------------------
 					for(int iTop = 0; iTop < arr.length; iTop++){
 						if(arr[iTop][user1] == "X"){
@@ -47,11 +49,31 @@ public class ArrayPracticeTwoD {
 						}
 
 						if(count == 4){
-							System.out.println("user 1 wins");
 							gameOn = false;
+							System.out.println("user 1 wins");
+							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
+							System.exit(0);
 						}
 					}
 					//Vertical check---------------------------------------------------------
+
+					//Horizontal check---------------------------------------------------------
+					for(int iSide = 0; iSide < 7; iSide++){
+						if(arr[i][iSide] == "X"){
+							countSide++;
+							System.out.println(count);
+						}else{
+							countSide = 0;
+						}
+						if(countSide == 4){
+							gameOn = false;
+							System.out.println("user 1 wins");
+							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
+							System.exit(0);
+						}
+
+					}
+					//Horizontal check---------------------------------------------------------
 					break;
 				}else{
 					continue;
@@ -83,6 +105,24 @@ public class ArrayPracticeTwoD {
 						}
 					}
 					//Vertical check---------------------------------------------------------
+
+					//Horizontal check---------------------------------------------------------
+					for(int iSide = 0; iSide < 7; iSide++){
+						if(arr[i][iSide] == "O"){
+							countSide++;
+							System.out.println(count);
+						}else{
+							countSide = 0;
+						}
+						if(countSide == 4){
+							gameOn = false;
+							System.out.println("user 2 wins");
+							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
+							System.exit(0);
+						}
+
+					}
+					//Horizontal check---------------------------------------------------------
 					break;
 				}else{
 					continue;
