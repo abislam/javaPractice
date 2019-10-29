@@ -52,17 +52,34 @@ public class ArrayPracticeTwoD {
 		while(true){
 			System.out.println("Input value for user1: ");
 			user1 = scan.nextInt() - 1;
+			int count = 0;
 
 			for(int i = 5; i >= 0; i--){
 				if(arr[i][user1] == "*"){
 					arr[i][user1] = "X";
+
+					for(int iTop = 0; iTop < arr.length; iTop++){
+						if(arr[iTop][user1] == "X"){
+							count++;
+							System.out.println(count);
+						}else{
+							count = 0;
+						}
+
+						if(count == 4){
+								System.out.println("user 1 wins");
+								break;
+						}
+					}
 					break;
 				}else{
 					continue;
 				}
 			}
 			System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-			checkWin(arr);
+			
+
+			
 
 			System.out.println("Input value for user2: ");
 			user2 = scan.nextInt() - 1;
@@ -77,7 +94,7 @@ public class ArrayPracticeTwoD {
 			}			
 			
 			System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));
-			checkWin(arr);
+			
 		}
 
 	}
