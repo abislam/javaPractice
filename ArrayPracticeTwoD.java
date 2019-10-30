@@ -1,8 +1,3 @@
-//this comment is testing branch updates
-//branch update: correct board placement based on user input
-//branch update: add second user input
-//check for win condition
-
 import java.util.Scanner;
 import java.util.Arrays;
 
@@ -30,10 +25,11 @@ public class ArrayPracticeTwoD {
 
 		//loop for getting user input and printing new board
 		while(gameOn){
-			System.out.println("Input value for user1: ");
+			System.out.println("Input value for Player 1: ");
 			user1 = scan.nextInt() - 1;
 			int count = 0;
 			int countSide = 0;
+	
 			for(int i = 5; i >= 0; i--){
 				if(arr[i][user1] == "*"){
 					arr[i][user1] = "X";
@@ -50,7 +46,7 @@ public class ArrayPracticeTwoD {
 
 						if(count == 4){
 							gameOn = false;
-							System.out.println("user 1 wins");
+							System.out.println("Player 1 wins!!");
 							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
 							System.exit(0);
 						}
@@ -61,13 +57,13 @@ public class ArrayPracticeTwoD {
 					for(int iSide = 0; iSide < 7; iSide++){
 						if(arr[i][iSide] == "X"){
 							countSide++;
-							System.out.println(count);
+							//System.out.println(count);
 						}else{
 							countSide = 0;
 						}
 						if(countSide == 4){
 							gameOn = false;
-							System.out.println("user 1 wins");
+							System.out.println("Player 1 wins!!");
 							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
 							System.exit(0);
 						}
@@ -84,7 +80,7 @@ public class ArrayPracticeTwoD {
 
 			
 
-			System.out.println("Input value for user2: ");
+			System.out.println("Input value for Player 2: ");
 			user2 = scan.nextInt() - 1;
 
 			for(int i = 5; i >= 0; i--){
@@ -94,14 +90,15 @@ public class ArrayPracticeTwoD {
 					for(int iTop = 0; iTop < arr.length; iTop++){
 						if(arr[iTop][user2] == "O"){
 							count++;
-							//System.out.println(count);
 						}else{
 							count = 0;
 						}
 
 						if(count == 4){
-							System.out.println("user 2 wins");
 							gameOn = false;
+							System.out.println("Player 2 wins!!");
+							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
+							System.exit(0);
 						}
 					}
 					//Vertical check---------------------------------------------------------
@@ -110,13 +107,12 @@ public class ArrayPracticeTwoD {
 					for(int iSide = 0; iSide < 7; iSide++){
 						if(arr[i][iSide] == "O"){
 							countSide++;
-							System.out.println(count);
 						}else{
 							countSide = 0;
 						}
 						if(countSide == 4){
 							gameOn = false;
-							System.out.println("user 2 wins");
+							System.out.println("Player 2 wins!!");
 							System.out.println(Arrays.deepToString(arr).replace("], ", "]\n").replace("[[", "[").replace("]]", "]"));		
 							System.exit(0);
 						}
@@ -133,22 +129,5 @@ public class ArrayPracticeTwoD {
 			
 		}
 
-	}
-
-
-
-	//methods over here
-	/*
-	win condition algorithm:
-	loop from array[0,0]
-		check 4 right
-		check 4 left
-		check 4 down
-		check 4 down right
-		check 4 down left
-
-	do this loop after every user input
-	*/
-
-	
+	}	
 }
